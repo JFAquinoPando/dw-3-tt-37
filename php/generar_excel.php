@@ -20,8 +20,17 @@ for ($i=0; $i < sizeof($matriz); $i++) {
 
 /* 
 $activeWorksheet->setCellValue('A1', $vieneDelFormulario);
- */
+*/
 $fecha = date("YmdHis");
 
 $writer = new Xlsx($spreadsheet);
-$writer->save("archivo_{$fecha}.xlsx");
+$archivo = "archivo_{$fecha}.xlsx";
+$writer->save($archivo);
+
+echo "
+<a href='./{$archivo}'>Descargar</a>
+
+";
+
+//header("Content-type: MIME");
+//header("Content-disposition: attachment;");

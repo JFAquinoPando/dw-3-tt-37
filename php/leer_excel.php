@@ -29,9 +29,9 @@ for ($i=1; $i < sizeof($filas); $i++) {
     array_push($valores, $valor);
     
 }
-$datosSQL = implode("), (", $valores);
-$sql = "INSERT INTO datos (valor) values ($datosSQL)";
+$datosSQL = implode("'), ('", $valores);
+$sql = "INSERT INTO datos (valor) values ('$datosSQL')";
 
-//echo $sql;
-$conexion->query($sql);
+echo $sql;
+//$conexion->query($sql);
 echo "Datos guardados, revisa tu tabla";
